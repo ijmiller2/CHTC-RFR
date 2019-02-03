@@ -1,0 +1,13 @@
+[Parallel(n_jobs=-1)]: Using backend LokyBackend with 40 concurrent workers.
+[Parallel(n_jobs=-1)]: Done  28 out of  80 | elapsed:  7.4min remaining: 13.7min
+[Parallel(n_jobs=-1)]: Done  55 out of  80 | elapsed: 226.0min remaining: 102.7min
+[Parallel(n_jobs=-1)]: Done  80 out of  80 | elapsed: 1051.1min finished
+Traceback (most recent call last):
+  File "genMGP_trainRF1.py", line 145, in <module>
+    rfr.fit(train_features, train_labels)
+NameError: name 'train_features' is not defined
+[Parallel(n_jobs=-1)]: Using backend LokyBackend with 40 concurrent workers.
+[Parallel(n_jobs=-1)]: Done   3 out of  40 | elapsed:    5.8s remaining:  1.2min
+[Parallel(n_jobs=-1)]: Done  17 out of  40 | elapsed:   14.0s remaining:   18.9s
+[Parallel(n_jobs=-1)]: Done  31 out of  40 | elapsed:   36.1s remaining:   10.5s
+[Parallel(n_jobs=-1)]: Done  40 out of  40 | elapsed:   50.7s finished

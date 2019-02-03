@@ -1,0 +1,23 @@
+MinMaxScaler(copy=True, feature_range=(0, 1))
+[[0.56338384 0.46298477 0.63071499 ... 0.42244079 0.24112541 0.67628533]
+ [0.70819261 0.61376833 0.63079494 ... 0.26852619 0.3976628  0.70792548]
+ [0.75054825 0.62952542 0.75390632 ... 0.39980056 0.23134098 0.74746135]
+ ...
+ [0.82948628 0.60251881 0.60762203 ... 0.43988698 0.3236935  0.81886675]
+ [0.78228555 0.53565264 0.72338028 ... 0.49191029 0.2692075  0.71513245]
+ [0.92661741 0.60327577 0.71463065 ... 0.30231448 0.32257515 0.78388975]]
+Training Features Shape: (7646, 1024)
+Training Labels Shape: (7646, 978)
+Testing Features Shape: (850, 1024)
+Testing Labels Shape: (850, 978)
+Modelling with Dummy
+Modelling with Extra trees
+Modelling with K-nn
+Modelling with Linear regression
+Modelling with Ridge
+Modelling with Lasso
+Modelling with ElasticNet
+Modelling with RandomForestRegressor
+Modelling with Decision Tree Regressor
+Modelling with MultiO/P GBR
+Modelling with MultiO/P AdaB

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "genMGP_trainRF1.py", line 131, in <module>
+    rfr = grid_result.best_estimator_
+NameError: name 'grid_result' is not defined
