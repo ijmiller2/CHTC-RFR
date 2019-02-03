@@ -109,8 +109,8 @@ from sklearn.preprocessing import MinMaxScaler
 gsc = GridSearchCV(
     estimator=RandomForestRegressor(),
     param_grid={
-        'max_depth': range(3, 5),
-        'n_estimators': (5, 10),
+        'max_depth': range(3, 7),
+        'n_estimators': (100, 1000, 4000, 8000),
         'max_features': ("auto","log2")},
     cv=5, scoring='neg_mean_squared_error', verbose=3, n_jobs=-1)
 grid_result = gsc.fit(features, rl)
