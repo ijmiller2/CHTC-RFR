@@ -95,12 +95,6 @@ ESTIMATORS = {
 y_test_predict = dict()
 y_mse = dict()
 
-for name, estimator in ESTIMATORS.items():
-    print("Modelling with {}".format(name))
-    estimator.fit(X_train, y_train)                    # fit() with instantiated object
-    y_test_predict[name] = estimator.predict(X_test)   # Make predictions and save it in dict under key: name
-    y_mse[name] = mean_squared_error(y_test, estimator.predict(X_test))
-
 ### make dummy regressor
 dr = DummyRegressor(strategy='median', constant=None, quantile=None)
 ### random forest regressor
@@ -112,44 +106,33 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import MinMaxScaler
 
 
-# I'm guessing this code block should be excluded given the code following it
-# i.e., given the local reference to gsc in "grid_result = gsc.fit(features, rl)""
-#Grid search with random forest model
-"""def rfr_model(X, y):
-    # Perform Grid-Search
-    gsc = GridSearchCV(
-        estimator=RandomForestRegressor(),
-        param_grid={
-            'max_depth': range(3,7),
-            'n_estimators': (10, 50, 100, 1000),
-            'max_features': ("auto","log2"),
-        },
-        cv=5, scoring='neg_mean_squared_error', verbose=3, n_jobs=-1)
-    grid_result = gsc.fit(X, y)
-    rfr = RandomForestRegressor(max_depth=best_params["max_depth"], n_estimators=best_params["n_estimators"], random_state=False, verbose=3)
-    # Perform K-Fold CV
-    scores = cross_val_predict(rfr, X, y, cv=10, scoring='neg_mean_absolute_error')
-    return scores"""
-
 gsc = GridSearchCV(
     estimator=RandomForestRegressor(),
     param_grid={
-        'max_depth': range(3,7),
-        'n_estimators': (10,1000),
+        'max_depth': range(3, 5),
+        'n_estimators': (5, 10),
         'max_features': ("auto","log2")},
     cv=5, scoring='neg_mean_squared_error', verbose=3, n_jobs=-1)
 grid_result = gsc.fit(features, rl)
 
 rfr = grid_result.best_estimator_
 rfr.n_jobs=-1
-rfr.fit(train_features, train_labels)
-rf_pred = rfr.predict(test_features)
-rf_error = abs(rf_pred - test_labels)
+rfr.fit(X_train, y_train)
+rf_pred = rfr.predict(X_test)
+rf_error = abs(rf_pred - y_test)
 print('Mean Absolute Error:', round(np.mean(rf_error), 4), 'z')
 
-dr.fit(train_features,train_labels)
-dr.fit(train_features,train_labels)
-dummypred = dr.predict(test_features)
-dummyerrors = abs(dummypred - test_labels)
+dr.fit(X_train,y_train)
+dummypred = dr.predict(X_test)
+dummyerrors = abs(dummypred - y_test)
 print('Mean dummy Absolute Error:', round(np.mean(dummyerrors), 4), 'z')
+
+#Write out data
+pd.DataFrame(y_test).to_csv("y_test.csv")
+pd.DataFrame(rf_pred).to_csv("rf_pred.csv")
+pd.DataFrame(dummypred).to_csv("dummypred.csv")
+
+#write out best RF model params
+with open("rfr_test_out.txt", "w") as outfile:
+    outfile.write(str(rfr)) 
 
