@@ -18,7 +18,7 @@ Submitting job(s).
 Waiting for job to start...
 Welcome to slot1_3@matlab-build-2.chtc.wisc.edu!
 ```
-Once, you inside you can pull the Python source code from [here]() with the `wget` command.
+Once, you inside you can pull the Python source code from [here](https://www.python.org/downloads/source/) with the `wget` command.
 ```bash
 wget https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tgz
 ```
