@@ -15,6 +15,6 @@ transfer_output_files = ../output/
 request_cpus = 1
 request_memory = 128GB
 request_disk = 2GB
-requirements = (OpSysMajorVer == 6)
+requirements = (OpSysMajorVer == 7)
 notification = Always
 queue 1
