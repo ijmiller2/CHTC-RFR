@@ -11,9 +11,9 @@ error = ../logfiles/$(job)_$(Cluster)_$(Process).err
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 transfer_input_files = ../input/combined.tar.gz
-transfer_output_files = ../output/
+#transfer_output_files = ../output/ 
 request_cpus = 1
-request_memory = 128GB
+request_memory = 75GB
 request_disk = 2GB
 requirements = (OpSysMajorVer == 7)
 notification = Always
